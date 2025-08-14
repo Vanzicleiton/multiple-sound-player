@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+/* Fonte dos ícones */
+@font-face {
+    font-family: 'Material Symbols Outlined';
+    font-style: normal;
+    src: url(../fonts/Material_Symbols_Outlined/MaterialSymbolsOutlined-VariableFont_FILL,GRAD,opsz,wght.ttf) format('truetype');
+}
+
+.material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+}
+
+/* Cores do projeto */
+:root {
+    --cor-fundo: #242424;
+    --cor-drop-highlight: #22405d;
+    
+    --cor-texto: white; 
+    --cor-borda-debug: black;
+    
+}
+
+body {
+    padding: 10px;
+    color: var(--cor-texto);
+    background-color: var(--cor-fundo);
+    transition: background-color 0.2s ease;
+}
+body.dragover {
+    background-color: var(--cor-drop-highlight);
+}
+
+h1 {
+    text-align: center;
+}
+.debug {
+    padding: 10px;
+    border: 2px var(--cor-borda-debug) solid;
+}

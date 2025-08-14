@@ -1,0 +1,125 @@
+@charset "UTF-8";
+
+/* Fonte dos ícones */
+@font-face {
+    font-family: 'Material Symbols Outlined';
+    font-style: normal;
+    src: url(../fonts/Material_Symbols_Outlined/MaterialSymbolsOutlined-VariableFont_FILL,GRAD,opsz,wght.ttf) format('truetype');
+}
+
+/* Estilo dos ícones */
+.config .material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+}
+
+:root {
+    --config-cor-text: white;
+    --config-cor-border: white;
+    --config-cor-background: rgba(0, 0, 0, 0.6);
+    /* --config-cor-background: rgb(36, 36, 36); */
+    --config-cor-btn-icon: rgb(255, 255, 255);
+    --config-cor-btn-highlight: rgba(255, 255, 255, 0.15);
+    --config-cor-btn-active-effect: #58a3ff80;
+    --config-cor-btn-salvar-highlight: rgba(255, 255, 255, 0.242);
+}
+
+/* Div que serve de background e bloqueia o fundo */
+.config#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+/* Div com base com tudo o conteúdo */
+.config #div-base {
+    width: 350px;
+    margin: 15px;
+    padding: 10px;
+    border: 1px var(--config-cor-border) solid;
+    background-color: var(--config-cor-background);
+
+    padding: 20px;
+    border-radius: 8px;
+    min-width: 300px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Div do top com o X pra fechar */
+.config #div-top {
+    text-align: right;
+}
+
+/* Divi com os inputs */
+.config #div-middle {
+    margin: 0px;
+    padding: 5px;
+}
+
+/* Campo dos inputs */
+.config fieldset {
+    border-color: var(--config-cor-border);
+}
+.config fieldset * {
+    vertical-align: middle;
+    color: var(--config-cor-text);
+}
+
+/* Botões que ativam o global */
+.config .btn-global {
+    /* vertical-align: middle; */
+    padding: 3px;
+    margin: 2px;
+    border: none;
+    color: var(--config-cor-btn-icon);
+    border-radius: 50%;
+    background-color: var(--config-cor-background);
+}
+.config .btn-global:hover {
+    background-color: var(--config-cor-btn-highlight);
+}
+.config .btn-global.aura {
+    text-shadow: 
+        0 0 8px var(--config-cor-btn-active-effect), 
+        0 0 16px var(--config-cor-btn-active-effect), 
+        0 0 24px var(--config-cor-btn-active-effect);
+}
+
+/* Div de baixo com o botão de salvar */
+.config #div-bottom {
+    text-align: right;
+}
+
+/* Botão de salvar as configurações */
+.config #btn-salvar {
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    color: var(--config-cor-text);
+    background-color: var(--config-cor-btn-highlight);
+}
+.config #btn-salvar:hover {
+    background-color: var(--config-cor-btn-salvar-highlight);
+}

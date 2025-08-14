@@ -1,0 +1,97 @@
+@charset "UTF-8";
+
+/* Fonte dos ícones */
+@font-face {
+    font-family: 'Material Symbols Outlined';
+    font-style: normal;
+    src: url(../fonts/Material_Symbols_Outlined/MaterialSymbolsOutlined-VariableFont_FILL,GRAD,opsz,wght.ttf) format('truetype');
+}
+
+/* Estilo dos ícones */
+.master .material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+}
+
+:root {
+    --master-cor-text: black;
+    --master-cor-background-control: white;
+    --master-cor-btn-icon: black;
+    --master-cor-btn-highlight: rgba(0, 0, 0, 0.15);
+    /* --master-cor-btn-highlight: rgb(255, 0, 0); */
+}
+
+/* Div com o controle mestre */
+.master {
+    margin: 0px;
+    margin-bottom: 10px;
+}
+.master * {
+    vertical-align: middle;
+}
+
+/* Div com o conteúdo */
+.master #div-content {
+    /* margin: 0px; */
+    padding-bottom: 10px;
+    text-align: center;
+    border-radius: 10px;
+}
+.master #div-content:hover {
+    /* border-color: yellow; */
+}
+
+/* Título */
+.master #title {
+    margin: 10px;
+    padding: 0px;
+    font-size: 25px;
+}
+
+/* Div com os controles */
+.master #div-control {
+    width: fit-content;
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px;
+    background-color: var(--master-cor-background-control);
+    border-radius: 10px;
+}
+
+.master .btn {
+    margin: 0px;
+    padding: 6px;
+    vertical-align: middle;
+    color: var(--master-cor-btn-icon);
+    background-color: var(--master-cor-background-control);
+    border: none;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+.master .btn:hover {
+    background-color: var(--master-cor-btn-highlight);
+}
+.master .btn.aura {
+    text-shadow: 
+        0 0 8px var(--config-cor-btn-active-effect), 
+        0 0 16px var(--config-cor-btn-active-effect), 
+        0 0 24px var(--config-cor-btn-active-effect);
+}
+
+.master span {
+    color: var(--master-cor-text);
+}
