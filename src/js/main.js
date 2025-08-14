@@ -1,5 +1,5 @@
 import PlayerManager from './player-manager.js'
-import Config from './config.js'
+// import Config from './config.js'
 // import Player from './player.js'
 
 // Pega o body
