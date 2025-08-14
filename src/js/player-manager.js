@@ -11,6 +11,7 @@ class PlayerManager {
         this.playerMaster = this.criarPlayerMaster()
         this.players = this.criarPlayers(this.files) // Lista com os objetos de player
         this.playerAtual = 0 // Índice do player atual
+        this.addDiv = this.criarAddFileDiv() // Cria a div que tem o botão de adicionar arquivos
         this.updatePlayerView()
         this.updatebtnVolumeLimiter()
         
@@ -34,6 +35,61 @@ class PlayerManager {
         });
         window.addEventListener('drop', (event) => this.onDropFiles(event))
 
+    }
+
+    criarAddFileDiv() {
+        const el = {}
+
+        // Div que fica abaixo da lista de players
+        el.baseDiv = document.createElement('div')
+        el.baseDiv.classList.add('add')
+        el.baseDiv.id = 'div'
+        document.body.appendChild(el.baseDiv)
+
+        // input que vai receber os arquivos
+        el.input = document.createElement('input')
+        el.input.classList.add('add')
+        el.input.id = 'file-input'
+        el.input.type = 'file'
+        el.input.multiple = 'true'
+        el.input.ariaHidden = 'true'
+        
+        el.btn = document.createElement('button')
+        el.btn.classList.add('add')
+        el.btn.id = 'upload-btn'
+        el.btn.type = 'button'
+        el.btn.ariaControls = 'file-input'
+        el.baseDiv.appendChild(el.btn)
+        el.btn.innerHTML = `
+            <svg viewBox="0 0 24 24" fill="none">
+                <path d="M12 5v14M5 12h14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Adicionar arquivos
+            `
+        
+        // Eventos
+        el.btn.addEventListener('click', () => el.input.click())
+
+        // Processar arquivos selecionados
+        el.input.addEventListener('change', () => {
+            const tempLinks = {}
+    
+            for (const file of el.input.files) {
+                if (file.type && file.type.startsWith('audio/')) {
+                    const audioURL = URL.createObjectURL(file)
+                    tempLinks[file.name] = audioURL
+                } else {
+                    const fileType = file.type || 'Desconhecido';
+                    alert(`Arquivo inválido: ${file.name}\nTipo: ${fileType}\nApenas arquivos de áudio são aceitos.`);
+                }
+            }
+            
+            // Salva o players
+            this.players.push(...this.criarPlayers(tempLinks))
+            this.updatePlayerView()
+        })
+
+        return el
     }
     criarPlayerMaster() {
         const el = {}
@@ -281,6 +337,13 @@ class PlayerManager {
         }
     }
     criarPlayers(files) { // Retorna uma lista com os objetos de player
+        if (!this.playersDiv) { // Cria a div que vai receber os players
+            this.playersDiv = document.createElement('div')
+            this.playersDiv.classList.add('players-div')
+            document.body.appendChild(this.playersDiv)
+        }
+
+
         let players = []
         
         // Define o começo da contagem pela quantidaque que já tem
@@ -294,7 +357,7 @@ class PlayerManager {
         // Cria os players
         for (const [name, link] of Object.entries(files)) {           
             let newPlayer = new Player(this, i, name, link, this.config.globalMaxVolume)
-            newPlayer.append(document.body)
+            newPlayer.append(this.playersDiv)
             players.push(newPlayer)
             i++
         }

@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+:root {
+    --add-btn-bg: #ffffff;
+    --add-btn-border: #2d6cdf;
+    --add-btn-shadow: #58a3ff80;
+    --add-btn-text: #2d6cdf;
+    --add-btn-hover-bg: #f3f7ff;
+    --add-btn-hover-border: #1f57c3;
+    --add-btn-hover-text: #1f57c3;
+    --add-btn-active-bg: #e6efff;
+    --add-focus-ring: 0 0 0 4px rgba(45,108,223,0.18);
+    --add-radius: 14px;
+}
+
+/* Div base com o botão de adicionar arquivos */
+.add#div {
+    margin: 10px 0px;
+    text-align: center;
+}
+
+/* Botão de adicionar arquivos */
+.add #upload-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: .6rem;
+    border: 2px solid var(--add-btn-border);
+    color: var(--add-btn-text);
+    background: var(--add-btn-bg);
+    padding: .9rem 1.2rem;
+    border-radius: var(--add-radius);
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 
+        background-color .2s ease, 
+        box-shadow .2s ease, 
+        border-color .2s ease, 
+        color .2s ease, 
+        transform .02s ease-in;
+        
+    user-select: none;
+}
+.add #upload-btn:hover {
+    background: var(--add-btn-hover-bg);
+    border-color: var(--add-btn-hover-border);
+    color: var(--add-btn-hover-text);
+    box-shadow: 
+        0 0 8px var(--add-btn-shadow), 
+        0 0 16px var(--add-btn-shadow), 
+        0 0 24px var(--add-btn-shadow);
+}
+}
+.add #upload-btn:active {
+    transform: translateY(1px);
+    background: var(--add-btn-active-bg);
+}
+.add #upload-btn:focus-visible {
+    outline: none;
+    box-shadow: var(--add-focus-ring);
+}
+
+/* Ícone de + dentro de botão de adicionar arquivos*/
+.add #upload-btn svg {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+}

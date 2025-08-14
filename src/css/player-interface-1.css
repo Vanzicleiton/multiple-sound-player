@@ -206,7 +206,7 @@
     border-radius: 50%;
     cursor: pointer;
     justify-content: center;
-    transition: background-color 0.3s; 
+    transition: background-color 0.3s;
 }
 
 .player .btn-remove:hover, .player .btn-settings:hover{

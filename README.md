@@ -172,7 +172,7 @@ Comandos que são ativados apertando as teclas de atalhos.
 
 ### Adição de arquivos
 
-Para adicionar um novo arquivo de áudio, é só arrastar e soltar os arquivos na página, se for um arquivo de áudio, ele vai automaticamente abrir. A compatibilidade com os formatos depende no navegador, então mesmo se o arquivo for aberto pelo player, se o navegador não o aceitar, ele não vai funcionar.
+Para adicionar um novo arquivo de áudio, é só arrastar e soltar os arquivos na página ou apertar o botão "Adicionar arquivos", que vai abrir uma janela pedindo para selecionar os arquivos, se for um arquivo de áudio, ele vai automaticamente abrir. A compatibilidade com os formatos depende no navegador, então mesmo se o arquivo for aberto pelo player, se o navegador não o aceitar, ele não vai funcionar.
 
 ## Créditos
 
@@ -181,4 +181,4 @@ Código escrito por Vanzicleiton.
 
 Comentário do Autor:
 
-Desculpe se a explicação ficou confusa, garanto que usar a aplicação é mais fácil do que ler isso tudo.
+Desculpe se a explicação ficou confusa, garanto que usar a aplicação é mais fácil do que ler isso tudo.
