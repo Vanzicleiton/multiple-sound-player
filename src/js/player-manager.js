@@ -165,6 +165,11 @@ class PlayerManager {
         
         el.controlsDiv.appendChild(document.createElement('br'))
         
+        // Div que fica o botão e barra de volume
+        el.divVolume = document.createElement('div')
+        el.divVolume.id = 'div-volume'
+        el.controlsDiv.appendChild(el.divVolume)
+        
         // Botão Volume
         el.btnVolume = document.createElement('button')
         el.btnVolume.id = 'btn-volume'
@@ -172,7 +177,7 @@ class PlayerManager {
         el.btnVolume.classList.add('btn')
         el.btnVolume.classList.add('material-symbols-outlined')
         el.btnVolume.addEventListener('focus', function(){this.blur()})
-        el.controlsDiv.appendChild(el.btnVolume)
+        el.divVolume.appendChild(el.btnVolume)
         
         // Barra de volume
         el.volumeBar = document.createElement('input')
@@ -183,19 +188,24 @@ class PlayerManager {
         el.volumeBar.max = 100
         el.volumeBar.addEventListener('focus', function(){this.blur()})
         el.volumeBar.addEventListener('input', (event) => this.onBarChange(event))
-        el.controlsDiv.appendChild(el.volumeBar)
+        el.divVolume.appendChild(el.volumeBar)
 
         // Span do volume
         el.volumeSpan = document.createElement('span')
         el.volumeSpan.innerHTML = el.volumeBar.value
-        el.controlsDiv.appendChild(el.volumeSpan)
+        el.divVolume.appendChild(el.volumeSpan)
         
         // el.controlsDiv.appendChild(document.createElement('br'))
         
+        // Div que fica o botão e barra de volume máximo
+        el.divVolumeMax = document.createElement('div')
+        el.divVolumeMax.id = 'div-volume-max'
+        el.controlsDiv.appendChild(el.divVolumeMax)
+
         // Cria o segundo botão de volumeLimiter, só ilustrativo
         el.btnVolumeLimiter2 = el.btnVolumeLimiter.cloneNode(true)
         el.btnVolumeLimiter2.addEventListener('focus', function(){this.blur()})
-        el.controlsDiv.appendChild(el.btnVolumeLimiter2)
+        el.divVolumeMax.appendChild(el.btnVolumeLimiter2)
         
         // Barra de volume máximo
         el.maxVolumeBar = document.createElement('input')
@@ -206,12 +216,12 @@ class PlayerManager {
         el.maxVolumeBar.max = 100
         el.maxVolumeBar.addEventListener('focus', function(){this.blur()})
         el.maxVolumeBar.addEventListener('input', (event) => this.onBarChange(event))
-        el.controlsDiv.appendChild(el.maxVolumeBar)
+        el.divVolumeMax.appendChild(el.maxVolumeBar)
         
         // Span do volume máximo
         el.maxVolumeSpan = document.createElement('span')
         el.maxVolumeSpan.innerHTML = el.maxVolumeBar.value
-        el.controlsDiv.appendChild(el.maxVolumeSpan)
+        el.divVolumeMax.appendChild(el.maxVolumeSpan)
 
         return el
     }

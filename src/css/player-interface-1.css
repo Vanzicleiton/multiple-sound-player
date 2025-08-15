@@ -29,6 +29,7 @@
 
 :root {
     --player-cor-background: white;
+    --player-cor-background-hover: rgba(255, 255, 255, 0.1);
     --player-cor-border-hover: yellow;
     --player-cor-seekbar-point: black;
     --player-cor-seekbar-fill: black;
@@ -37,23 +38,18 @@
     --player-cor-btn-icon: black;
     --player-cor-btn-highlight: rgba(0, 0, 0, 0.15);
     --player-cor-btn-active-effect: #58a3ff80;
-    --player-cor-btn-out-highlight: #373737;
+    --player-cor-btn-out-highlight: rgba(255, 255, 255, 0.2);
+    --player-cor-btn-out-highlight-hidden: rgba(255, 255, 255, 0.3);
     --player-cor-btn-out-icon: white;
 }
 
 /* Div com o player */
 .player {
-    max-width: fit-content;
-}
-
-/* Borda do player */
-.player .player-border-div {
     padding: 10px;
-    border: 1px transparent solid;
     border-radius: 10px;
 }
-.player:hover .player-border-div {
-    border-color: var(--player-cor-border-hover);
+.player:hover {
+    background-color: var(--player-cor-background-hover);
 }
 
 /* Div com o contéudo do player */
@@ -70,7 +66,9 @@
 /*  Div que marca os controles */
 .player .div-controls {
     display: inline-block;
-    width: max-content;
+    width: 100%;
+    min-width: 375px;
+    max-width: 500px;
     vertical-align: middle;
     padding: 10px;
     background-color: var(--player-cor-background);
@@ -110,7 +108,7 @@
 /* Seekbar com o progresso */
 .player .seekbar {
     -webkit-appearance: none;
-    width: 500px;
+    width: 100%;
     height: 8px;
     border-radius: 5px;
     background: var(--player-cor-seekbar-background);
@@ -190,25 +188,31 @@
         0 0 24px var(--player-cor-btn-active-effect);
 }
 
-/* Botões que ficam fora do player */
-.player .btn-remove, .player .btn-settings {
-    margin: 5px;
-    color: white;
-    background-color: transparent;
-
-
-    height: 35px;
+.player .div-out-buttons {
+    display: inline-block;
     vertical-align: middle;
+}
+/* Botões que ficam fora do player */
+.player .btn-out {
+    display: block;
+    margin: 5px;
+    height: 35px;
+    
+    text-align: center;
+    justify-content: center;
+
     color: var(--player-cor-btn-out-icon);
     background-color: transparent;
-    text-align: center;
     border: none;
     border-radius: 50%;
+    
     cursor: pointer;
-    justify-content: center;
     transition: background-color 0.3s;
 }
 
-.player .btn-remove:hover, .player .btn-settings:hover{
+.player .btn-out:hover{
     background-color: var(--player-cor-btn-out-highlight);
+}
+.player .hide .btn-out:hover{
+    background-color: var(--player-cor-btn-out-highlight-hidden);
 }

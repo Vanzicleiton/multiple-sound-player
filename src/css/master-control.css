@@ -92,6 +92,10 @@
         0 0 24px var(--config-cor-btn-active-effect);
 }
 
+.master #div-volume, .master #div-volume-max {
+    display: inline-block;
+}
+
 .master span {
     color: var(--master-cor-text);
 }

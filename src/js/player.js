@@ -145,10 +145,6 @@ class Player {
         el.baseDiv.addEventListener('click', (event) => this.onBaseDivClick(event))
         el.baseDiv.classList.add('player')
 
-        // Div que serve de borda para o player
-        el.borderDiv = document.createElement('div')
-        el.borderDiv.classList.add('player-border-div')
-
         // Div com o conteudo do player
         el.contentDiv = document.createElement('div')
         el.contentDiv.classList.add('player-content-div')
@@ -252,14 +248,20 @@ class Player {
         el.controlsDiv.appendChild(el.btnLoop)
         
         // --------------------------------------------------
-
+        
+        // --------------------------------------------------
+        // Div com botões de fora dos controles
+        // --------------------------------------------------
+        el.outButtonsDiv = document.createElement('div')
+        el.outButtonsDiv.classList.add('div-out-buttons')
+        
         // --------------------------------------------------
         // Cria o botão de remover
         // --------------------------------------------------
         el.btnRemoveSound = document.createElement('button')
         // this.playerManager.commandRemoveSound(this.playerNumber)
-        el.btnRemoveSound.classList.add('btn')
-        el.btnRemoveSound.classList.add('btn-remove')
+        // el.btnRemoveSound.classList.add('btn')
+        el.btnRemoveSound.classList.add('btn-out')
         el.btnRemoveSound.classList.add('material-symbols-outlined')
         el.btnRemoveSound.innerHTML = 'close'
         el.btnRemoveSound.addEventListener('click', (event) => this.playerManager.commandRemoveSound(this.playerNumber))
@@ -270,6 +272,9 @@ class Player {
         el.btnRemoveSound.addEventListener('mouseleave', () => {
             this.isMouseOverbtnRemoveSound = false
         })
+        el.outButtonsDiv.appendChild(el.btnRemoveSound)
+        
+        // el.outButtonsDiv.appendChild(document.createElement('br'))
         // --------------------------------------------------
         
         // --------------------------------------------------
@@ -277,26 +282,23 @@ class Player {
         // --------------------------------------------------
         el.btnsettings = document.createElement('button')
         // this.playerManager.commandRemoveSound(this.playerNumber)
-        el.btnsettings.classList.add('btn')
-        el.btnsettings.classList.add('btn-settings')
+        el.btnsettings.classList.add('btn-out')
         el.btnsettings.classList.add('material-symbols-outlined')
         el.btnsettings.innerHTML = 'settings'
         el.btnsettings.addEventListener('click', (event) => this.commandSettings())
         el.btnsettings.addEventListener('focus', function() {this.blur()})
+        el.outButtonsDiv.appendChild(el.btnsettings)
         // --------------------------------------------------
-
+        
         // --------------------------------------------------
         // Aplica o append nos elementos na ordem correta
         // --------------------------------------------------
-        el.baseDiv.appendChild(el.borderDiv)
-        el.borderDiv.appendChild(el.contentDiv)
+        el.baseDiv.appendChild(el.contentDiv)
         el.contentDiv.appendChild(el.label)
         el.contentDiv.appendChild(document.createElement('br'))
-        // el.contentDiv.appendChild(this.audio)
         el.contentDiv.appendChild(el.controlsDiv)
-        el.contentDiv.appendChild(el.btnRemoveSound)
-        el.contentDiv.appendChild(el.btnsettings)
-        el.contentDiv.appendChild(document.createElement('br'))
+        el.contentDiv.appendChild(el.outButtonsDiv)
+        // el.contentDiv.appendChild(document.createElement('br'))
 
         return el
     }
